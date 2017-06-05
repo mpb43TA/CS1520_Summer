@@ -21,12 +21,19 @@ def print_values(iterable):
     for val in iterable:
         print(val)
 
-#1 On the CLI provide an index to extend the fibonacci sequence
+"""
+Fibonacci Sequence
+1, 1, 2, 3, 5, 8, 13, ...
+x_i = x_i-1 + x_i-2, for all i greater than 1
+x_0, x_1 = 1
+NOTE: underscore is to signify that the following is a subscript
+"""
 
+#1 On the command line, provide the last desired sequence value
 n = sys.argv[1]
-
-gen = fibonacci_generator(n)
-list = fibonacci_list(n)
-
-print_values(gen)
-print_values(list)
+print("Given sequence length: "+str(n))
+# gen = fibonacci_generator(n)
+# list = fibonacci_list(n)
+# 
+# print_values(gen)
+# print_values(list)

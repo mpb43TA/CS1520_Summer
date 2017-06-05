@@ -25,19 +25,19 @@ print(line)
 
 
 print("The value at the 7th index position")
-#PROBLEM Print the value at the 7th index
+#PROBLEM1.1 Print the value at the 7th index
 
 print("The characters from indices 4 to 9")
-#PROBLEM Print the characters from indices 4 to 9 characters
+#PROBLEM1.2 Print the characters from indices 4 to 9 characters
 
 print("The last 4 characters")
-#Print the last 4 characters
+#PROBLEM1.3 Print the last 4 characters
 
 """
 ****** Iterators ********
 """
 
-#PROBLEM Iterate through TWO ways "some_list" to add the values. Then print the result
+#PROBLEM2.1 Iterate through TWO ways "some_list" to add the values. Then print the result
  #1. Iterate through the indices (using range)
  
  #2. Iterate using the keyword "in"
@@ -47,26 +47,12 @@ print("The last 4 characters")
 dict1 = {"fruit":"apple", "vegetable":"carrot", "meat":"chicken"}
 dict2 = {(1,2):"x", (1,3):"y", (4,5):"z"}
 
-# for key in dict1:
-#     print(key, dict1[key])
-# 
-# for key in dict2:
-#     print(key, dict2[key])
-# 
-# for key1, key2 in zip(dict1,dict2):
-#     print(key1, dict1[key1], key2, dict2[key2])
+#Problem2.2 iterate though dict1, dict2
 
 #Functions and Generators
-#PROBLEM Define a function that will print the list, dict1, and dict2
+#PROBLEM3.1 Define a function that will print the list, dict1, and dict2
 
+#PROBLEM3.2 Define a generator that will print the list, dict1, and dict2
 
-# def print_gen(iterable):
-#     for key in iterable:
-#         yield key, iterable[key]
-# 
-# gen = print_gen(dict1)
-# print(next(gen))
-# for val in gen:
-#     print(val)
 
 

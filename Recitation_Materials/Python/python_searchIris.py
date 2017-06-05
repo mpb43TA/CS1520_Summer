@@ -22,10 +22,10 @@ def print_values(iterable):
     for val in iterable:
         print(val)
 """
-#1 Retrieve a directory name from the command line
-#2 Read through the file filtering based on the threshold and keyword
-#3 Loop through a set of tuples where each keyword (iris type) 
+#1 Read through the file filtering based on the threshold and keyword
+    - will have to change such that search is a generator
+#2 Loop through a set of tuples where each keyword (iris type) 
     is associated with a value and threshold value (i.e. (<keyword>, <value>))
-#4 use print_values to display your result
+#3 use print_values to display your result
 """
 
