@@ -1,0 +1,11 @@
+Virtual Environment virtual env tutorial
+    - create a directory (can keep all virtualenvs in the same or make it specific)
+    - CLI "virtualenv <name of environment>
+    - http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/
+    - Start virtual environment
+        - source <name of environment>/bin/activate
+    - Now you can pip to install
+    - when finished type "deactivate"
+    - Freeze and Install Requirements
+        - "pip freeze > requirements.txt", can be used to keep all requirements for packages
+        - "pip install -r requirements.txt", to retrieve all requirements

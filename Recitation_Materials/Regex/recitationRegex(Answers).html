@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS Regex Examples Recitation</title>
+		<script type="text/javascript">
+			function matcher(s, p, correct) {
+				document.write("using original string ", s, " with pattern ", p, ":  <br />");
+				document.write("<b>Correct Answer: </b>" + correct + "<br /><b> Your Answer: </b>" + s.match(p));
+				document.write("<br /><br />");
+			}
+
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		    document.write("<br /><h3>Character Sets and Escaping</h3><hr></br >");
+			matcher("3", /[0-9+-\/*]/, "3");
+			matcher("+", /[0-9+-\/*]/, "+");
+			matcher("-", /[0-9+-\/*]/, "-");
+			matcher("*", /[0-9+-\/*]/, "*");
+			matcher("/", /[0-9+-\/*]/, "/");
+			matcher("\\", /[0-9+-\/\\*]/, "\\");
+			matcher(".", /[0-9+-\/*]/, ".");
+			
+			
+			document.write("<br /><h3>Patterns and Global Flag</h3><hr></br >");
+			
+			matcher("foofoo", /(.+)\1/, "foofoo, foo");
+			matcher("foofee", /(.+)\1/, "oo,o");
+			matcher("foofee", /(.+)\1/g, "oo,ee");
+			matcher("foobar", /(.+)\1/, "foobar, o");
+			matcher("barbaz", /(.+)\1/, "null");
+			
+			matcher("aaaaaaa", /a+/g, "aaaaaaa");
+			matcher("aaaaaaa", /a+?/g, "a,a,a,a,a,a,a");
+			
+			
+			
+			document.write("<br /><h3>Matching Strings (Set 1)</h3><hr>");
+			document.write("<h4>Create a regex that will match the given string</h4>");
+			
+			//Pattern 11
+			var pattern11 = /[\.\w%\+\$]+/
+	
+			matcher("aaa.aaaabbaa.aaaaabbccc", pattern11, "aaa.aaaabbaa.aaaaabbccc");
+			matcher("12abcd.3fcgg56", pattern11, "12abcd.3fcgg56");
+			matcher("ay.ayayaya%$%6+92W.xz12%", pattern11, "ay.ayayaya%$%6+92W.xz12%" );
+			
+			//Pattern 12
+			var pattern12 = /a*b/
+			matcher("aaabbbbbb", pattern12, "aaab");
+			matcher("caaaaaab", pattern12, "aaaaaab");
+			matcher("uv12aaaaaabxp", pattern12, "aaaaaab" );
+			matcher("uvbxp", pattern12, "b" );
+
+
+
+			document.write("<br /><h3>Phone Numbers (Set 2)</h3><hr>");
+			document.write("<h4>Retrieve all area codes. (i.e. first three numbers excluding the country code)</h4>");
+			//By the way this is not my number, so no need to prank call it.
+			//PATTERN 21
+			var pattern21 = /\d{3}/
+			matcher("5705258833",pattern21 , "570");
+			matcher("570-525-8833",pattern21 , "570");
+			matcher("(570) 525-8833",pattern21 , "570");
+			matcher("(+1)570-525-8833",pattern21 , "570");
+			
+			document.write("<h4>Retrieve the last 7 digits of the local number.</h4>");	
+			
+			//PATTERN 22
+			var pattern22 = /\d{3}(?:-)*\d{4}$/
+			matcher("5705258833",pattern22 , "5258833");
+			matcher("570-525-8833",pattern22 , "525-8833");
+			matcher("(570) 525-8833",pattern22 , "525-8833");
+			matcher("(+1)570-525-8833",pattern22 , "525-8833");
+
+            document.write("<h3>Email (Set 3)</h3><hr>");
+			document.write("<h4>Retrieve the usernames from the email address. (i.e. everything before the @ symbol)</h4>");
+
+			//PATTERN 31:  
+			var pattern31 = /.+(?=@)/
+			
+			matcher("mpb43@pitt.edu", pattern31, "mpb43");
+			matcher("matt124@gmail.com", pattern31, "matt124");
+			matcher("exams!!!pp@yahoo.com", pattern31, "exams!!!pp");
+			
+			document.write("<h4>Retrieve the domain names. (i.e. pitt, gmail, yahoo)</h4>");
+			
+			//PATTERN 32:  
+			var pattern32 = /\w+(?=\.)/
+
+			matcher("mpb43@pitt.edu", pattern32, "pitt");
+			matcher("matt124@gmail.com", pattern32, "gmail");
+			matcher("exams!!!pp@yahoo.com", pattern32, "yahoo");
+			
+			
+			document.write("<br /><h3>Dates (Set 4)</h3><hr>");
+			document.write("<h4>Retrieve the month.</h4>");
+			
+			//PATTERN 41:
+			
+			var pattern41 = /[\w]*/
+			matcher("12/1/1999", pattern41, "12");
+			matcher("December 1, 1999", pattern41, "December");
+			matcher("12.01.99", pattern41, "12");
+			
+			document.write("<h4>Retrieve the day.</h4>");
+			var pattern42 = /\D(\d{1,2})/
+			matcher("12/1/1999", pattern42, "\1,1");
+			matcher("December 1, 1999", pattern42, "1,1");
+			matcher("12.01.99", pattern42, ".01, 01");
+
+			document.write("<h4>Retrieve the year.</h4>");
+			var pattern42 = /\d+$/
+			matcher("12/1/1999", pattern42, "1999");
+			matcher("December 1, 1999", pattern42, "1999");
+			matcher("12.01.99", pattern42, "99");
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+Installing Flask
+    - Installing Flask: http://flask.pocoo.org/docs/0.12/installation/#installation
+    - Make sure your virtualenv is started
+    - pip install Flask
+    
+Flask Documentation - http://flask.pocoo.org/docs/0.12/api/
+    
+Running Locally:
+    - Calling the python script in the command line calls starts a local server
+    - Go to the local url and port to see the application
+        - http://127.0.0.1:5000/
