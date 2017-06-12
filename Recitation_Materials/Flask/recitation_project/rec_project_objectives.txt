@@ -1,13 +1,17 @@
 Recitation Objectives:
 
-    1. Split views into separate files (blueprints)
+    1. Review *** comments in the split views into separate files (blueprints)
         - Appropriately setup blueprint in profile and login files
         - Remove users dictionary and put it in data.py
         - Make all appropriate import calls based on new config
-    2. Edit main file to call blueprints and set debug mode
+    2. Review edits in  main file to call blueprints and set debug mode
     3. Create a registration view/html page (adds user to dictionary)
+	- Create a registration view and html template in the login view
+	- Registration should automatically log the user in
+	- Registration should store the username and password in the data dictionary
     4. Create a message board
         - Contains all posts from all users
         - Each post has the username and title with text from post beneath
         - Each new post is added to a "posts" list in data.py
         - Each new post is rendered after adding it to the posts list
+	- All posts are stored in data. Choose any data structure you would like (list, dictionary, etc.)
