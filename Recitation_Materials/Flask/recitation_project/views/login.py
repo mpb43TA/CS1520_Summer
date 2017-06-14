@@ -12,7 +12,7 @@ login_blueprint = Blueprint('login', __name__, template_folder = 'templates')
 def logger():
 	# first check if the user is already logged in
 	if "username" in session:
-		return redirect(url_for("profile", username=session["username"]))
+		return redirect(url_for("profile.profile", username=session["username"]))
 
 	# if not, and the incoming request is via POST try to log them in
 	elif request.method == "POST":
