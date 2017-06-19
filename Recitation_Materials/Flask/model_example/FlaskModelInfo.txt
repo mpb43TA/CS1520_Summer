@@ -1,0 +1,34 @@
+For flask fl10_model example
+- create an environment variable: export FLASK_APP=/path/to/fl10_model.py
+	- http://flask.pocoo.org/docs/0.12/cli/
+	- if using windows use set instead of export
+	- will need to exit CLI for variable set
+- In the command line flask commands specified are now available
+	- flask initdb
+	- flask check
+- After establishing the flask database, you can now run a python shell
+	to access the model instances and create new ones.
+	- import all classes and variables you would like to use
+		- import fl10_model as model (reference is now to model)
+		- from fl10_model import Person(import just person model)
+- Querying the Model
+	- <model_name>.query.<method>
+	Methods:
+		- all()
+		- filter_by(<attribute> = <attribute_reference>)
+		- filter(<model>.<attribute> == <attribute_reference>)
+		- get(<primary key>)
+	- filter_by and filter return base queries
+		- instances can be found by using all, first, last, etc.
+- Adding instance
+	1. create an instance
+		- model_instance = <model>(<init variables>)
+	2. add it to the database session using the database variable
+		- db.session.add(model_instance)
+	3. commit this new instance to the database
+		- db.session.commit()
+- Delete instances
+	- Delete through a base query
+	- Person.query.filter_by(id = 1).delete()
+
+*For more detailed information about flask models see http://flask-sqlalchemy.pocoo.org/
