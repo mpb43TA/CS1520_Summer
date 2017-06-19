@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Your profile!</title>
+	</head>
+	<body>
+		Welcome back <strong>{{username}}</strong>!
+		<a href="{{ url_for("login.unlogger") }}">click here to logout</a>
+<!-- 
+		TODO: Add forms for posting new messages and deleting messages
+		    - only the current user should be able to delete their own messages
+ -->
+	</body>
+</html>
