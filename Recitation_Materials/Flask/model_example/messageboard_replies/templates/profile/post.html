@@ -1,0 +1,49 @@
+<li>
+{% if value.root %}
+<div style = "border:1px solid black">
+{%else%}
+<div style = "bottom-border : 1px solid grey">
+{%endif%}
+<table style = "border-bottom: 1px solid grey">
+<tr>
+    <td><strong>{{value.content.fname}}</strong>({{value.content.username}}):</td>
+    <td><strong>{{value.content.title}}</strong></td>
+    <td>({{value.content.date}})</td>
+
+    {% if value.content.username == username %}
+    <td>
+        <form action="" method="post">
+            <input type="text" name = "id" value="{{value.content.id}}" style="display:none"/>
+            <input type="submit" name="delete" value = "Delete" >
+            </input>
+        </form>
+    </td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td colspan = "2">{{value.content.text}}</td>
+</tr>
+
+<tr>
+    <td colspan = "3"><a href = '#{{value.content.id}}' data-target = "#">Reply</a>
+        <form id = "{{value.content.id}}" action="" method="post" style="display:none">
+                <input type="text" name = "id" value="{{value.content.id}}" style="display:none"/>
+                <input type="text" name="body" />
+                <input type="submit" name="reply" value = "Submit" ></input>
+        </form>
+    </td>
+</tr>
+</table>
+<ul>
+    {% for id, next_value in posts.items() %}
+        {% if id in value.children %}
+            {% with value = next_value, username = username, posts = posts %}
+            {% include "profile/post.html"%}
+            {% endwith %}
+        {% endif %}
+
+    {% endfor %}
+<ul>
+</div>
+</li>

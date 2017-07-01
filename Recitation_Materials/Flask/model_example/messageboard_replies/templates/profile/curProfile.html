@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<html>
+	<head>
+		<title>Your profile!</title>
+		<style>
+		    ul {
+              list-style-type: none;
+            }
+		</style>
+	</head>
+	<body>
+		Welcome back <strong>{{username}}</strong>!
+		<a href="{{ url_for("login.unlogger") }}">click here to logout</a>
+        <form action="" method="post">
+            Title:  <input type="text" name="title" />
+            <br />
+            Body:  <input type="text" name="body" />
+            <br />
+            <input type="submit" name="submit" />
+        </form>
+        <ul>
+            {% for post, value in posts.items() %}
+                {% if value.root %}
+                    {% with value = value, username = username, posts = posts %}
+                    {% include "profile/post.html"%}
+                    {% endwith %}
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    	<script>
+        $(document).ready(function(){
+            $("a").click(function(){
+                $(this).hide();
+                $($(this).attr("href")).show();
+            });
+        });
+        </script>
+	</body>
+
+</html>
