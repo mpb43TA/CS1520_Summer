@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fibonacci</title>
+</head>
+<body>
+    
+    <div id = "fib_div">
+        <h3> Fibonacci </h3>
+        <form id = "fib_form">
+            Sequence Length: <input type="text" id= "seq_length">
+            <br><input type ="submit" value = "Submit"/>
+        </form>
+        
+        <div>
+            <p id ='sq'></p>
+            <p id ='sum'></p>
+        </div>
+    </div>
+    
+    
+    <script type = "text/javascript">
+        
+        function square(val){
+            return val * val;
+        }
+        
+        function sum(total, val){
+            return total + val;
+        }
+        
+        function fibonacci(e){
+            if(e.preventDefault) e.preventDefault();
+            var length = parseInt(document.getElementById('seq_length').value);
+            document.getElementById('seq_length').value = '';
+            var arr = [1, 1]
+            for (var i = 2; i<length; i++){
+                arr[i] = arr[i-1] + arr[i-2];
+            }
+            console.log(arr);
+            arr_squared = arr.map(square);
+            console.log(arr_squared);
+            document.getElementById('sq').innerHTML = arr_squared;
+            document.getElementById('sum').innerHTML = arr_squared.reduce(sum);
+            
+            return false;
+        }
+        
+        var form = document.getElementById('fib_form');
+        if (form.attachEvent){
+            form.attachEvent("submit", fibonacci);
+        }else{
+            form.addEventListener("submit", fibonacci);
+        }
+        
+    </script>
+</body>
+</html>
