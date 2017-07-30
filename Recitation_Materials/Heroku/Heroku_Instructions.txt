@@ -1,0 +1,63 @@
+Deploying to Heroku
+Will require:
+    - Heroku Account (https://www.heroku.com)
+    - Python Version greater than 3 (suggests 3.6)
+    - Virtualenv
+    - Install Heroku CLI
+
+Goals:
+    - Deploy dummy app through the heroku tutorial
+    - Second deploy a personal app (one of your projects)
+
+Dummy App:
+    - Can be found after completing sign in with Heroku
+
+Personal App
+    - Create rqrd files
+        - Procfile
+        - runtime.txt
+        - requirements.txt
+            - get requirements.txt file by performing pip "freeze >> requirements.txt"
+    - Edit <main program>.py
+
+Procfile example (1 line):
+    web: gunicorn catering:app --log-file=-
+
+runtime.txt example (1 line):
+    python-3.6.1
+
+requirements.txt example:
+    Flask-SQLAlchemy==2.2
+    gunicorn==19.7.1
+    itsdangerous==0.24
+    Jinja2==2.9.6
+    MarkupSafe==1.0
+    python-dateutil==2.6.0
+    pytz==2017.2
+    six==1.10.0
+    SQLAlchemy==1.1.11
+    Werkzeug==0.12.2
+
+
+Basic Steps/Commands:
+    On command line
+        - Login to heroku account on 
+            heroku login
+        - Clone your git repo if you do not have it locally; change to the git repo directory
+        - Create a heroku app (creates a repo associated with local repo)
+            heroku create
+        - Push to heroku (now deployed)
+            git push heroku master
+        - Sets an instance of the app to be running
+            heroku ps:scale web=1
+        - Open to the site
+            heroku open
+        - View logging in real time
+            heroku logs --tail
+
+For Flask Apps:
+- May require adding in a main call to the <main file>.py
+if __name__ == "__main__":
+    app.run(debug=True, use_reloader=True)
+
+
